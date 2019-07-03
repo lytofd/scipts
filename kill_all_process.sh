@@ -25,6 +25,7 @@ kill_process(){
     do
       sudo kill -9 $pid
     done
+    #判断是否存活僵尸进程，如果存活，则杀死该进程的父进程
     ZOMBIES=`ps -ef | grep $1 | awk -F " "  '{print $3}'`
     echo $ZOMBIES
     if [ ! -z "$ZOMBIES" ]
