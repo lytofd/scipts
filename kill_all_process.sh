@@ -25,7 +25,7 @@ kill_process(){
     do
       sudo kill -9 $pid
     done
-    ZOMBIES=`ps -ef | grep ncf_main | awk -F " "  '{print $3}'`
+    ZOMBIES=`ps -ef | grep $1 | awk -F " "  '{print $3}'`
     echo $ZOMBIES
     if [ ! -z "$ZOMBIES" ]
     then
