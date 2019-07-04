@@ -17,7 +17,7 @@ FILE_NAME=$BASE_DIR$ROOT_DIR_FILE_NAME
 echo $FILE_NAME
 sed -i "s/https/http/g" $FILE_NAME
 #sed just have greey mode,so sed command could not relace it correctly,we use perl here
-perl -pi -e "s/http\:\/\/.*?\//http\:\/\/172\.16\.0\.158\//g" $FILE_NAME
+perl -pi -e "s/http\:\/\/.*?\//http\:\/\/替换的ip地址\//g" $FILE_NAME
 #dispose the general file and special file
 for((index=0;index<${#SUB_DIR[@]};index++))
 do
