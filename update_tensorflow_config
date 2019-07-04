@@ -43,3 +43,9 @@ then
 sed -i "s/41c48a189be489e2d15dec40e0057ea15b95ee5b39cc2a7e6cf663e31432c75e/1cc54114e4402dc678860bde1563b908bbc7e3b0c702ae5f1e35bce21e3d156f/g" $FILE_NAME_WITH_PATH
 fi
 echo "script done!"
+
+:<<!
+修改tensorflow脱机训练时候的配置
+使用perl是因为sed无法支持非贪婪模式
+perl中有http是我们要匹配url里面的链接，而配置文件url数组外面有文件路径是//a/b/c形式，这样也会错误匹配上，所以perl中加入http，这个单词只有url数组中的链接才有。
+!
