@@ -1,9 +1,18 @@
-#在ubuntu 18.04上安装cuda nccl等深度学习必备的组件
 set -x
-#change mirror source 
-sudo tar xf
+#install the network driver
+if [ ! -d  "MLNX_OFED_LINUX-4.6-1.0.1.1-ubuntu18.04-x86_64" ]
+then
+  sudo tar xf MLNX_OFED_LINUX-4.6-1.0.1.1-ubuntu18.04-x86_64.tgz
+fi
+
+cd MLNX_OFED_LINUX-4.6-1.0.1.1-ubuntu18.04-x86_64
+sudo ./mlnxofedinstall
+cd ..
+rm -rf
+
+#change the mirror source
 sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak
-cat>/etc/apt/sources.list<<EOF
+sudo cat>/etc/apt/sources.list<<EOF
 deb http://mirrors.163.com/ubuntu/ precise main universe restricted multiverse 
 deb-src http://mirrors.163.com/ubuntu/ precise main universe restricted multiverse 
 deb http://mirrors.163.com/ubuntu/ precise-security universe main multiverse restricted 
