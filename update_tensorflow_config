@@ -1,7 +1,7 @@
 
 #/usr/bin/
 BASE_DIR="/home/liyang/tensorflow/"
-SUB_DIR=("third_party/aws/" "third_party/flatbuffers/" \
+SUB_DIR=( "tensorflow/workspace.bzl" "third_party/aws/" "third_party/flatbuffers/" \
          "third_party/highwayhash/" "third_party/hwloc/"  "third_party/icu/" \
          "third_party/jpeg/" "third_party/keras_applications_archive/" \
          "third_party/kissfft/"  "third_party/nasm/"  "third_party/ortools/"
@@ -17,7 +17,7 @@ FILE_NAME=$BASE_DIR$ROOT_DIR_FILE_NAME
 echo $FILE_NAME
 sed -i "s/https/http/g" $FILE_NAME
 #sed just have greey mode,so sed command could not relace it correctly,we use perl here
-perl -pi -e "s/http\:\/\/.*?\//http\:\/\/替换的ip地址\//g" $FILE_NAME
+perl -pi -e "s/http\:\/\/.*?\//http\:\/\/172\.16\.0\.158\//g" $FILE_NAME
 #dispose the general file and special file
 for((index=0;index<${#SUB_DIR[@]};index++))
 do
@@ -35,7 +35,7 @@ do
   echo $FILE_NAME_WITH_PATH
   #replace the file content with the raw ip address
   sed -i "s/https/http/g" $FILE_NAME_WITH_PATH
-  perl -pi -e "s/http\:\/\/.*?\//http\:\/\/替换的ip地址\//g" $FILE_NAME_WITH_PATH
+  perl -pi -e "s/http\:\/\/.*?\//http\:\/\/172\.16\.0\.158\//g" $FILE_NAME_WITH_PATH
 done
 #replace the hash value of archives.bzl
 if [ -f $FILE_NAME_WITH_PATH ]
