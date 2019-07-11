@@ -1,10 +1,6 @@
 BASE_DIR="/home/liyang/tensorflow/"
-SUB_DIR=( "tensorflow/" "third_party/aws/" "third_party/flatbuffers/" \
-         "third_party/highwayhash/" "third_party/hwloc/"  "third_party/icu/" \
-         "third_party/jpeg/" "third_party/keras_applications_archive/" \
-         "third_party/kissfft/"  "third_party/nasm/"  "third_party/ortools/"
-         "third_party/toolchains/preconfig/generate/"  \
-         )
+SUB_DIR=( "tensorflow/" "third_party/aws/" "third_party/flatbuffers/" "third_party/highwayhash/" "third_party/hwloc/"  "third_party/icu/" 
+"third_party/jpeg/" "third_party/keras_applications_archive/" "third_party/kissfft/"  "third_party/nasm/"  "third_party/ortools/" "third_party/toolchains/preconfig/generate/"  )
 ROOT_DIR_FILE_NAME="WORKSPACE"
 GENERAL_FILE_NAME="workspace.bzl"
 SPECIAL_FILE_NAME="archives.bzl"
