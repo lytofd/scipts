@@ -19,14 +19,14 @@ do
 done
 
 kill_process(){
-    NCF_PIDS=`ps -ef | grep $1 | awk  -F " " '{ print $2 }'`
+    NCF_PIDS=`ps -ef | grep $1 | grep -v  grep | awk  -F " " '{ print $2 }'`
     #echo $NCF_PIDS
     for pid in $NCF_PIDS
     do
       sudo kill -9 $pid
     done
     #判断是否存活僵尸进程，如果存活，则杀死该进程的父进程
-    ZOMBIES=`ps -ef | grep $1 | awk -F " "  '{print $3}'`
+    ZOMBIES=`ps -ef | grep $1 | grep -v grep |  awk -F " "  '{print $3}'`
     echo $ZOMBIES
     if [ ! -z "$ZOMBIES" ]
     then
